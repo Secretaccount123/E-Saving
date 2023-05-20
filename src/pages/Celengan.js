@@ -34,9 +34,9 @@ const Celengan = ({ celengans, setCelengans }) => {
   const handleAdd = (e, id, celengans) => {
     e.preventDefault()
     const todoTarget = FindTodo(parseInt(id), celengans);
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    if(parseInt(todoTarget.kurang) < parseInt(jumlah)){
+    var today = new Date(Date.now());
+    var time = today.toLocaleDateString()
+    if (parseInt(todoTarget.kurang) < parseInt(jumlah)) {
       alert("Nominal tidak boleh melebihi kurang")
       return
     }
@@ -122,7 +122,7 @@ const Celengan = ({ celengans, setCelengans }) => {
 
           </table>
 
-          <table>
+          <table className='text-center'>
             <thead>
               <tr>
                 <th>
@@ -204,18 +204,18 @@ const Celengan = ({ celengans, setCelengans }) => {
                           <p>Jumlah</p>
                           <input onChange={(e) => setJumlah(e.target.value)} name='target' type='number' placeholder='Target Tabungan' required />
                         </div>
+                     
+                      <div className="mt-4">
+                        <input
+                          type="submit"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+
+                        />
+                      </div>
                       </form>
                     </div>
 
-                    <div className="mt-4">
-                      <button
-                        type="submit"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        
-                      >
-                        submit
-                      </button>
-                    </div>
+
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
