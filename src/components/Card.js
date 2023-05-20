@@ -30,7 +30,7 @@ const Card = ({ data }) => {
                 </div>
                 <div>
                     <p>Progres</p>
-                    <p> {data.progres}%</p>
+                    <p> {parseInt(data.progres).toFixed()}%</p>
                 </div>
             </div>
 
